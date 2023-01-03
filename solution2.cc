@@ -1,31 +1,23 @@
-int getMaximum(int arr[]) {
-int n = sizeof(arr)/sizeof(arr[0]);
-// Find the maximum value of arr
-int max = arr[0];
-for (int i = 1; i < n; i++) {
-if (arr[i] > max) {
-max = arr[i];
+#include <stdio.h>
+#include <iostream>
+int getMaximum(int*p){
+  size_t n = sizeof(*p)/sizeof(p[0]);
+  int max = p[0];
+sussy:
+  for (int i = 2; i<n;i++){
+    for (int x = 1; x<p[i];x++){
+      p[i-1] += x;
+      p[i] -= x;
+    }
+  }
+  int max2 = p[1];
+  for (int i =2; i< n;i++){
+    if (p[i]>max2){
+      max2 = p[i];
+    }
+  }
+  if (max2<max){
+    goto sussy;
+  }
+  return max2;
 }
-}
-// Perform the operation until the maximum value is minimized
-while (max > 1) {
-for (int i = n - 1; i >= 2; i--) {
-if (arr[i] > 1) {
-arr[i - 1]++;
-arr[i]--;
-}
-}
-// Find the new maximum value of arr
-max = arr[0];
-for (int i = 1; i < n; i++) {
-if (arr[i] > max) {
-max = arr[i];
-}
-}
-}
-// Return the minimized maximum value
-return max;
-}
-
-
-
