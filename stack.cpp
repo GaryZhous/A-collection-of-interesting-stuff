@@ -16,11 +16,11 @@ void stack_init(stack_t* stack, int cap){
 //see if the stack is empty or full
 void stack_if(stack_t* stack){
   if(stack->cap == stack->top){
-    printf("full!\n");
+    std::cout << "full!\n";
   }else if(stack->top == 0){
-    printf("empty!\n");
+    std::cout << "empty!\n";
   }else{
-    printf("there are %d values in it\n", stack->top);
+    std::cout << "there are " << stack->top << " values in it!\n";
   }
 }
 //push data to the stack
@@ -50,7 +50,7 @@ int main(void){
   for(;;){
     if(number.top > 0){
      int val = stack_pull(&number);
-     printf("%d\n", val);
+     std::cout << val << "\n";
     }else{
       break;
     }
