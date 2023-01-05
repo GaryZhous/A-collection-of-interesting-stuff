@@ -13,13 +13,9 @@ return 0;
 
 char* removeStringFromString(char* str, char* substr) {
   //see if substr is longer than str
-  switch (int a = strcmp(str, substr)){
-    case (-1):{
-      char* err = "substr is longer than str, failed!";
-      return err;}
-    default:{
-      continue;
-    }
+  if (strlen(str) < strlen(substr)){
+    char* err = "substr is too long!";
+    return err;
   }
   // base case: if the substring is not present in the string, return the string as is
   if (!strstr(str, substr)) {
