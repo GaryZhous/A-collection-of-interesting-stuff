@@ -35,7 +35,6 @@ int* merge(int* size){
   int i =0;
   while (i<*size){
   int max = 0;
-  int min = 100000;
   for (;i<*size;i++){
     if(list[i]>max){
       max = list[i];
@@ -43,6 +42,7 @@ int* merge(int* size){
   }
   new_list[j++] = max;
   i+=1;
+  int min = max;
   for (;i<*size;i++){
     if(list[i]<min){
       min = list[i];
