@@ -33,23 +33,31 @@ int* merge(int* size){
    }
   *size = siz;
   int* new_list = (int*)malloc(*size*sizeof(int));
-  int j =0;
   int i =0;
+  int j =0;
   while (i<*size){
-  int max = 0;
-  for (;i<*size;i++){
-    if(list[i]>max){
-      max = list[i];
+  int s;
+  int min_idx = 0;
+  for (s = 0;s<*size;s++){
+    if(list[s]>list[min_idx]){
+      min_idx = s;
     }
   }
-  new_list[j++] = max;
+  new_list[j++] = list[min_idx];
   i+=1;
-  int min = max;
-  for (;i<*size;i++){
-    if(list[i]<min){
-      min = list[i];
+  int uh = min_idx;
+  for (int f =0 ;f<*size;f++){
+    if(list[f]<list[uh] && list[f] != -10000){
+      uh = f;
     }
   }
+  new_list[j++] = list[uh];
+  i+=1;
+  list[min_idx] = -10000;
+  list[uh] = -10000;
+    }
+  return new_list;
+}
   new_list[j++] = min;
   i+=1;
     }
