@@ -47,6 +47,6 @@ int main(){
     cout << um["lisi"] << endl;
     hash<string> hs;
     for(auto const& p : um)
-        cout << p.first << '(' << hs(p.first)  << ')' << ':' << p.second << endl;*/
+        cout << p.first << '(' << hs(p.first)  << ')' << ':' << p.second << endl;
     return 0;
 }
