@@ -32,7 +32,7 @@ public:
     bool operator()(Name const& a, Name const& b)const{
         return a.m_xing==b.m_xing && a.m_ming==b.m_ming;
     }
-};*/
+};
 int main(){
     unordered_map<Name,int,NameHash/*,NameEqual*/> um{
         {{"zhang","san"},88},{{"li","si"},70},{{"wang","wu"},66},
@@ -41,7 +41,7 @@ int main(){
 
     for(auto const& p : um)
         cout << p.first << ':' << p.second << endl;
-/*    unordered_map<string,int> um{
+        unordered_map<string,int> um{
         {"zhangsan",88},{"lisi",70},{"wangwu",66},{"maliu",90},{"tianqi",85}
     };
     cout << um["lisi"] << endl;
