@@ -23,7 +23,6 @@ int getres(char s[],int length)
 		return 0;
 	}
 }
-extern void number_generator();
 int m_strlen(char *p)
 {
 	int cnt=0;
@@ -38,10 +37,15 @@ int m_strlen(char *p)
 	}
 	return cnt;
 }
-int main()
-{
-	number_generator();
-  int target = rand();
+void number_gen(int*target){
+  *target = rand();
+  if(*target>1000)
+    number_gen(target);
+  return;
+}
+int main(){
+  int target;
+  number_gen(&target);
 	int res;
 	int res_target;
 	int arr_length;
@@ -51,18 +55,17 @@ int main()
   scanf("%s", input);
   if (input[0] == 'q')
    goto sussy;
-	while(1)
-	{
-		int l=0;
-		arr_length=m_strlen(input);
-		if(arr_length>4)
-		{
-			printf("too long,limit 4!\n");
-			continue;
-		}
-		res=getres(input,arr_length);
-		switch(res)
-		{
+while(1){
+	int l=0;
+	arr_length=m_strlen(input);
+	while(arr_length>4){
+		printf("too long,limit 4!\n");
+                printf("plz reener:");
+                scanf("%s", input);
+                arr_length=m_strlen(input);
+	}
+	res=getres(input,arr_length);
+	switch(res){
 			case 1:
 				res_target=atoi(input);	
 				if(res_target<target && res_target>=0)
@@ -80,7 +83,8 @@ int main()
 				else if(res_target == target)
 				{
 					printf("\n\ncongratulations,you guess successful!\n\n");
-					break;
+					printf("thx for playing!\n");
+          return 0;
 				}
 				else
 				{
@@ -97,10 +101,10 @@ int main()
         scanf("%s",input);
 				continue;
 			default:
-				printf("error\n");
+				fprintf(stderr, "Unkown Error!\n");
+        return -1;
 		}	
-    break;
-	}
+}
 sussy:
   printf("thx for guessing, have fun!\n");
   return 0;
