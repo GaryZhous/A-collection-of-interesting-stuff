@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 int getres(char s[],int length)
 {
 	int flag=0;
@@ -38,13 +39,12 @@ int m_strlen(char *p)
 	return cnt;
 }
 void number_gen(int*target){
-  *target = rand();
-  if(*target>1000)
-    number_gen(target);
+  *target = rand()%1000 + 1;
   return;
 }
 int main(){
   int target;
+  srand(time(NULL));
   number_gen(&target);
 	int res;
 	int res_target;
