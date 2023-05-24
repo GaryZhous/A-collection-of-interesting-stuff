@@ -1,111 +1,47 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-int getres(char s[],int length)
-{
-	int flag=0;
-	for(int i=0;i<=length;i++)
-	{
-		if((int)s[i]>57 || (int)s[i]<48 && (int)s[i]!=0)
-		{
-			flag++;
-		}
-		if(s[i]=='-')
-		{
-			return -1;
-		}
-	}
-	if(flag == 0)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-int m_strlen(char *p)
-{
-	int cnt=0;
-	while(1)
-	{
-		cnt++;
-		p++;
-		if(*p=='\0')
-		{
-			break;
-		}
-	}
-	return cnt;
-}
-void number_gen(int*target){
-  *target = rand()%1000 + 1;
-  return;
-}
-int main(){
-  int target;
-  srand(time(NULL));
-  number_gen(&target);
-	int res;
-	int res_target;
-	int arr_length;
-	char input[3];
-	int limit_l=sizeof(input)/sizeof(input[0]);
-	printf("please enter a number,if you want to exit,please enter 'q':\n");
-  scanf("%s", input);
-  if (input[0] == 'q')
-   goto sussy;
-while(1){
-	int l=0;
-	arr_length=m_strlen(input);
-	while(arr_length>4){
-		printf("too long,limit 4!\n");
-                printf("plz reener:");
-                scanf("%s", input);
-                arr_length=m_strlen(input);
-	}
-	res=getres(input,arr_length);
-	switch(res){
-			case 1:
-				res_target=atoi(input);	
-				if(res_target<target && res_target>=0)
-				{
-					printf("try bigger!\n");
-          scanf("%s",input);
-					continue;
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
 
-				}else if(res_target>target){
-		
-					printf("try smaller!\n");
-          scanf("%s",input);
-					continue;
-				}
-				else if(res_target == target)
-				{
-					printf("\n\ncongratulations,you guess successful!\n\n");
-					printf("thx for playing!\n");
-          return 0;
-				}
-				else
-				{
-					printf("unknowing error!\n");
-          scanf("%s",input);
-					continue;
-				};
-			case 0:
-				printf("please enter a number!retry!\n");
-        scanf("%s",input);
-				continue;
-			case -1:
-				printf("can not be negtive number!\n");
-        scanf("%s",input);
-				continue;
-			default:
-				fprintf(stderr, "Unkown Error!\n");
-        return -1;
-		}	
-}
-sussy:
-  printf("thx for guessing, have fun!\n");
+using namespace std;
+
+int main(){
+  srand(time(NULL));
+label2:
+  int number = rand()%100;
+  cout << "Enter your guess: ";
+label1:
+  int idx = 0;
+  char* buff = (char*)malloc(idx);
+  char c;
+  while((c=getchar()) !='\n'){
+    buff = (char*)realloc(buff, ++idx);
+    *(buff+idx-1)=c;
+  }
+  buff = (char*)realloc(buff, ++idx);
+  buff[idx-1] = '\0';
+  int mod = atoi(buff);
+  if(mod != number){
+    for(int i = 0; i < idx-1; i++){
+      if(buff[i] > '9' || buff[i] < '0'){
+        cout << "Enter a number, sir! ";
+        goto label1;
+      }
+    }
+    free(buff);
+    if(mod > number){
+      cout << "guess a smaller one: ";
+      goto label1;
+    }else{
+      cout << "guess a bigger one: ";
+      goto label1;
+    }
+  }
+  string n;
+  cout << "your answer is right! enter 0 to quit, else go on: ";
+  getline(cin, n);
+  const char* h = n.c_str();
+  if(h[0] != '0')
+    goto label2;
+  cout << "see ya!" << endl;
   return 0;
 }
