@@ -41,14 +41,14 @@ class Tree_and_sh*t {
    }
   private:
   int count(TreeNode node) {
-    if (node == null) return 0;
+    if (node == nullptr) return 0;
     return 1 + count(node->left) + count(node->right);
   }
 
   ListNode* preMid(ListNode* head) {
     ListNode* slow = head, fast = head->next;
     ListNode* pre = head;
-    while (fast != null && fast->next != null) {
+    while (fast != nullptr && fast->next != nullptr) {
         pre = slow;
         slow = slow->next;
         fast = fast->next->next;
