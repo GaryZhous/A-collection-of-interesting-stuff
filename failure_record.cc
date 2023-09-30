@@ -14,15 +14,15 @@ int main() {
     while(1) {
         cout << "Enter company name: ";
         getline(cin, companyName);
-        cin.igonre();
         
         if(companyName == "quit") {
             break;
         }
         
         cout << "Enter company status: ";
-        getline(cin, companyStatus);
+        cout << "Oops!" <<endl;
         cin.ignore();
+        getline(cin, companyStatus);
         
         companyStatusMap[companyName] = companyStatus;
     }
