@@ -261,12 +261,12 @@ public class ConcurrencyReview {
         protected Integer compute() {
             int result = 0;
             if (last - first <= threshold) {
-                // 任务足够小则直接计算
+                // if the task is small enough we can calculate directly
                 for (int i = first; i <= last; i++) {
                     result += i;
                 }
             } else {
-                // 拆分成小任务
+                // otherwise we break it down into smaller pieces
                 int middle = first + (last - first) / 2;
                 ForkJoinExample leftTask = new ForkJoinExample(first, middle);
                 ForkJoinExample rightTask = new ForkJoinExample(middle + 1, last);
