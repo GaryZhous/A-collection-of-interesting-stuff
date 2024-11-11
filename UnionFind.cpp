@@ -15,9 +15,6 @@ public:
     unordered_map<string, string> parent; // Stores the parent of each element
     unordered_map<string, double> weight; // Stores the weight for each element relative to its parent
 
-    // Initialize Union-Find structure
-    UnionFind() {}
-
     // Find with path compression and weight adjustment (for weighted union-find)
     string find(const string& x) {
         if (parent[x] != x) {
