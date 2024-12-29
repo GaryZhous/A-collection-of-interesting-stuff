@@ -1,4 +1,3 @@
-// datastructure.go
 // This file provides examples of useful data structures implemented in Go.
 
 package main
