@@ -1,7 +1,6 @@
-/*
-  Given an unweighted graph (aka an adjacent matrix), return the lowest path cost from the top right corner to the bottom left corner.
-  Each step is counted as cost + 1.
-*/
+/*Given an unweighted graph (aka an adjacent matrix), return the lowest path cost from the top right corner to the bottom left corner.
+ *Each step is counted as cost + 1.
+ */
 
 #include <iostream>
 #include <vector>
