@@ -6,8 +6,7 @@
 
 using namespace std;
 
-/**
- * UnionFind class with support for both regular union-find operations and
+/* UnionFind class with support for both regular union-find operations and
  * weighted union-find for cases such as division equations.
  */
 class UnionFind {
