@@ -1,5 +1,6 @@
 import java.util.*;
 import dacheng.utils.*;
+
 class TrieNode {
     public TrieNode children[] = new TrieNode[26];
     public boolean isEndOfWord;
