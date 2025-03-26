@@ -6,7 +6,6 @@
 #include <vector>
 #include <queue>
 #include <utility> // for std::pair
-
 using namespace std;
 
 // Directions for moving up, down, left, right
