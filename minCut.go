@@ -8,7 +8,6 @@
   - If s[0:i] is a palindrome, dp[i] = 0 (no cuts needed).
   - Otherwise, we try every possible partition s[j:i] where j ≤ i, and if s[j:i] is a palindrome, we update dp[i] = min(dp[i], dp[j-1] + 1).
 */
-
 func minCut(s string) int {
     n := len(s)
     if n == 0 {
