@@ -107,6 +107,17 @@ func main() {
 	for _, animal := range animals {
 		fmt.Println(animal.Speak())
 	}
+
+	go func() {
+		defer func() {
+			if r := recover(); r != nil {
+				fmt.Println("Goroutine recovered from panic:", r)
+			}
+		}()
+	
+		// This panic won't crash the whole program
+		panic("Oops in goroutine")
+	}() //recover from panic, like try and catch in C++/Java/Python
 }
 
 // Function Example
