@@ -7,7 +7,7 @@ type OGInterface interface {
 	FuncTwo() float64
 	FuncThree() string
 }
-//a struct that implements all three methods of the interface
+//a struct that implements all three methods of the OG interface
 type StructAll struct{}
 
 func (s StructAll) FuncOne() int {
