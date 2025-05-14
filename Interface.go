@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+//declare an interface with methods
+type OGInterface interface {
+	FuncOne() int
+	FuncTwo() float64
+	FuncThree() string
+}
+//a struct that implements all three methods of the interface
+type StructAll struct{}
+
+func (s StructAll) FuncOne() int {
+	return 100
+}
+func (s StructAll) FuncTwo() float64 {
+	return 10.0
+}
+func (s StructAll) FuncThree() string {
+	return "hello"
+}
+
+func main() {
+  //an interface can bind with any struct that implements all the methods listed in it
+	var OG OGInterface = StructAll{} 
+	fmt.Println(OG.FuncOne())
+	fmt.Println(OG.FuncTwo())
+	fmt.Println(OG.FuncThree())
+}
