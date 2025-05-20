@@ -109,6 +109,7 @@ func main() {
 	}
 
 	go func() {
+		// Defer go routine will run anyways when a program exits, following Last In, First Out rule
 		defer func() {
 			if r := recover(); r != nil {
 				fmt.Println("Goroutine recovered from panic:", r)
