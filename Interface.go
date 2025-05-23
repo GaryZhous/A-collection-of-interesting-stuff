@@ -20,10 +20,26 @@ func (s StructAll) FuncThree() string {
 	return "hello"
 }
 
+type Handler struct{}
+
+func (handler *Handler) handling() {
+	fmt.Printf("Handling!")
+}
+//embed the Handler struct
+type MockHandler struct{
+	Handler 
+}
+
+func (handler *MockHandler) handling() {
+	fmt.Printf("Mock-handling!")
+}
+
 func main() {
   //an interface can bind with any struct that implements all the methods listed in it
 	var OG OGInterface = StructAll{} 
 	fmt.Println(OG.FuncOne())
 	fmt.Println(OG.FuncTwo())
 	fmt.Println(OG.FuncThree())
+	mockhandler := &MockHandler{Handler{}}
+	mockhandler.handling() //this will call MockHandler's handling()
 }
