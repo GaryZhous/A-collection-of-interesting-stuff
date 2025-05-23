@@ -42,4 +42,5 @@ func main() {
 	fmt.Println(OG.FuncThree())
 	mockhandler := &MockHandler{Handler{}}
 	mockhandler.handling() //this will call MockHandler's handling()
+	mockhandler.Handler.handling() //this will call the embedded Hanlder's handling()
 }
