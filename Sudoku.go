@@ -1,5 +1,5 @@
 package main
-//Sudoku solver implemented in golang
+//Sudoku solver implemented in go
 import "fmt"
 
 func solveSudoku(board [][]byte) {
