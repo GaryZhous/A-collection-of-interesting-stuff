@@ -65,6 +65,7 @@ int shortestPath(vector<vector<int>>& grid) {
 }
 
 int main() {
+    
     // Example grid, 0 indicates a traversable cell
     vector<vector<int>> grid = {
         {0, 0, 0},
