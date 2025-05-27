@@ -9,6 +9,7 @@ using namespace std;
  * Detecting cycle in a Directed Graph
  * We use DFS and track the recursion stack to find back edges that indicate a cycle.
  */
+
 bool isCyclicDirectedUtil(int v, vector<vector<int>>& adj, vector<bool>& visited, vector<bool>& recStack) {
     if (!visited[v]) {
         visited[v] = true;
