@@ -35,7 +35,8 @@ func (handler *MockHandler) handling() {
 }
 
 func main() {
-  //an interface can bind with any struct that implements all the methods listed in it
+ //an interface can bind with any struct that implements all the methods listed in it
+ //if the struct has functions that use pointer receivers, then when binding we have to assign a pointer of the struct to the interface lvalue
 	var OG OGInterface = StructAll{} 
 	fmt.Println(OG.FuncOne())
 	fmt.Println(OG.FuncTwo())
