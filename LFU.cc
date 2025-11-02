@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// implementation of LFU in C++, more complex than Java since we can't overload the built-in function that erases the oldest entry in a linked Hashmap
+
 class LFUCache {
 private:
     int capacity;
