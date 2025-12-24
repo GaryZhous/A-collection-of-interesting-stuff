@@ -1,4 +1,4 @@
-// use of webcurl
+// use of webcurl API
 #include <iostream>
 #include <string>
 #include <curl/curl.h>
