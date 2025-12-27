@@ -1,4 +1,5 @@
-/*A no-zero integer is a positive integer that does not contain the digit 0 in its decimal representation.
+/*
+  A no-zero integer is a positive integer that does not contain the digit 0 in its decimal representation.
   Given an integer n, count the number of pairs (a, b) where:
     1. a and b are no-zero integers.
     2. a + b = n
