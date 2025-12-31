@@ -1,5 +1,6 @@
-import java.util.*;
 //Least freuqently used Cache aka LFU implementation in Java
+import java.util.*;
+
 class LFUCache {
     private final int capacity;
     private int minFrequency;
