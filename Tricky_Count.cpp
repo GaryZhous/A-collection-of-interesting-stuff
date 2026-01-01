@@ -5,7 +5,7 @@
     2. a + b = n
   Return an integer denoting the number of such pairs. 
 */
-/*only 10.8% acceptance rate on LeetCode*/
+
 class Solution {
 public:
     string s;
