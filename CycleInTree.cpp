@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Node structure for a binary tree
 struct Node {
     int data;
     Node* left;
