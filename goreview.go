@@ -1,5 +1,5 @@
 package main
-/* review of basics in golang*/
+
 import (
 	"fmt"
 	"sync"
