@@ -2,6 +2,7 @@
   1. '?' Matches any single character.
   2. '*' Matches any sequence of characters (including the empty sequence).
   3. The matching should cover the entire input string (not partial).
+  Atlassian Interview question
 */
 
 func isMatch(s string, p string) bool {
