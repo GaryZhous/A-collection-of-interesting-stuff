@@ -4,7 +4,6 @@
 #include <nlohmann/json.hpp>
 #include <glog/logging.h>
 
-// Struct to hold API response
 struct User {
     int id;
     std::string name;
