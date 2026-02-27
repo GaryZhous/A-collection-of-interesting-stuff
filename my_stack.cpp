@@ -10,9 +10,11 @@ class Stack{
     this->cap = size;
     this->top = -1;
   }
+
   ~Stack(){
     delete[] this->arr;
   }
+
   void push(int stuff){
     if (isFull()){
         cout << "Overflow\nProgram Terminated\n";
@@ -20,6 +22,7 @@ class Stack{
     }
     arr[++top] = stuff;
   }
+
   int pop(){
     if (isEmpty()){
         cout << "Underflow\nProgram Terminated\n";
@@ -27,20 +30,25 @@ class Stack{
     }
     return arr[top--];
   }
+
   int peek(){
     if (!isEmpty())
        return arr[top];
     exit(EXIT_FAILURE);
   }
+
   int size(){
     return top + 1;
   }
+
   bool isEmpty(){
     return top == -1;
   }
+
   bool isFull(){
     return top == cap - 1;
   }
+
   private:
   int* arr;
   int top;
