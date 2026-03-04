@@ -1,50 +1,69 @@
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
-use std::hash::Hash;
-// Inspired by Jack's Goose commit: https://github.com/block/goose/pull/2992
-// Define a generic lazy cache structure
-struct LazyCache<K, V>
-where
-    K: Eq + Hash + Clone,
-{
-    compute: Box<dyn Fn(&K) -> V + Send + Sync>,
-    store: Arc<Mutex<HashMap<K, V>>>,
+use std::sync::Once;
+
+pub struct LazyCache<K, V> {
+    values: Arc<Mutex<HashMap<K, V>>>,
+    init_once: Once,
 }
 
 impl<K, V> LazyCache<K, V>
 where
-    K: Eq + Hash + Clone,
-    V: Clone,
+    K: std::hash::Hash + Eq,
 {
-    fn new<F>(func: F) -> Self
-    where
-        F: Fn(&K) -> V + Send + Sync + 'static,
-    {
+    pub fn new() -> Self {
         LazyCache {
-            compute: Box::new(func),
-            store: Arc::new(Mutex::new(HashMap::new())),
+            values: Arc::new(Mutex::new(HashMap::new())),
+            init_once: Once::new(),
         }
     }
 
-    fn get(&self, key: K) -> V {
-        let mut store = self.store.lock().unwrap();
-        if let Some(value) = store.get(&key) {
+    pub fn get_or_try_init<F>(&self, key: K, initializer: F) -> V
+    where
+        F: FnOnce() -> V,
+    {
+        // Try to lock the mutex and check if the key exists
+        let mut values = self.values.lock().unwrap();
+        if let Some(value) = values.get(&key) {
             return value.clone();
         }
 
-        let value = (self.compute)(&key);
-        store.insert(key.clone(), value.clone());
+        // First-time initialization with single-flight
+        let mut value = initializer();
+        self.init_once.call_once(|| { // Ensures that initialization only happens once
+            values.insert(key, value.clone());
+        });
+
         value
+    }
+
+    pub fn get_or_init<F>(&self, key: K, initializer: F) -> V
+    where
+        F: FnOnce() -> V,
+    {
+        self.get_or_try_init(key, initializer)
     }
 }
 
 fn main() {
-    // Create a lazy cache that computes the square of an integer
-    let cache = LazyCache::new(|key: &u32| {
-        println!("Computing for {}", key);
-        key * key
-    });
+    let cache: LazyCache<String, i32> = LazyCache::new();
+    let key = "item1".to_string();
 
-    println!("Result: {}", cache.get(10)); // Will compute
-    println!("Result: {}", cache.get(10)); // Will reuse
+    // Concurrent initialization example
+    let handles: Vec<_> = (0..10)
+        .map(|i| {
+            let cache = &cache;
+            std::thread::spawn(move || {
+                let value = cache.get_or_try_init(key.clone(), || {
+                    println!("Initializing value for {} from thread {}", key, i);
+                    i
+                });
+                println!("Value for {} is {} from thread {}", key, value, i);
+            })
+        })
+        .collect();
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
 }
