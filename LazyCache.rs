@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::hash::Hash;
 use std::sync::{Arc, Condvar, Mutex};
-
+// Lazy Cache implementation inspired by Jack's commit: https://github.com/block/goose/pull/2992
 #[derive(Debug, Default)]
 pub struct LazyCache<K, V> {
     values: Mutex<HashMap<K, Arc<V>>>,
