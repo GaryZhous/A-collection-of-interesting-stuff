@@ -1,4 +1,4 @@
-//Least freuqently used Cache aka LFU implementation in Java
+// Least freuqently used Cache aka LFU implementation in Java
 import java.util.*;
 
 class LFUCache {
