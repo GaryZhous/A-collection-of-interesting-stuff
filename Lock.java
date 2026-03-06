@@ -1,5 +1,6 @@
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
+
 // Synchronize is the mutex offered by JVM and ReentrantLock is the mutex offered by JDK
 public class MutexSemaphoreExample {
 
