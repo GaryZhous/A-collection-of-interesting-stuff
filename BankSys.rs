@@ -11,10 +11,6 @@
   3. boolean deposit(int account, long money) Deposit money dollars into the account numbered account. Return true if the transaction was successful, false otherwise.
   4. boolean withdraw(int account, long money) Withdraw money dollars from the account numbered account. Return true if the transaction was successful, false otherwise.
 */
-struct Bank {
-    balance: Vec<i64>,
-}
-
 impl Bank {
 
     // 1-indexed account -> 0-indexed vector index
