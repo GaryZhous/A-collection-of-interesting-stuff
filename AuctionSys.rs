@@ -1,11 +1,3 @@
-/**
- * Your AuctionSystem object will be instantiated and called as such:
- * let obj = AuctionSystem::new();
- * obj.add_bid(userId, itemId, bidAmount);
- * obj.update_bid(userId, itemId, newAmount);
- * obj.remove_bid(userId, itemId);
- * let ret_4: i32 = obj.get_highest_bidder(itemId);
- */
 use std::collections::{BinaryHeap, HashMap};
 
 struct AuctionSystem {
