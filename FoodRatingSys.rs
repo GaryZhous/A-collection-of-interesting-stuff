@@ -1,9 +1,3 @@
-/**
- * Your FoodRatings object will be instantiated and called as such:
- * let obj = FoodRatings::new(foods, cuisines, ratings);
- * obj.change_rating(food, newRating);
- * let ret_2: String = obj.highest_rated(cuisine);
- */
 use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashMap};
 
