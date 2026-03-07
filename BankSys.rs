@@ -16,9 +16,6 @@ struct Bank {
 }
 
 impl Bank {
-    fn new(balance: Vec<i64>) -> Self {
-        Self { balance }
-    }
 
     // 1-indexed account -> 0-indexed vector index
     fn idx(&self, account: i32) -> Option<usize> {
