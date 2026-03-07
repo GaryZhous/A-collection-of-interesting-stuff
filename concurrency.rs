@@ -1,5 +1,3 @@
-// main.rs
-//
 // Build/run (needs Cargo.toml dependency):
 // tokio = { version = "1", features = ["full"] }
 //
