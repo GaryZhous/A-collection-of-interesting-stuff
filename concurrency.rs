@@ -232,9 +232,7 @@ async fn demo_tokio() {
     );
 }
 
-// ============================================================
 // Main: run std demo + tokio demo in one file
-// ============================================================
 #[tokio::main(flavor = "multi_thread", worker_threads = 4)]
 async fn main() {
     demo_std_threads();
