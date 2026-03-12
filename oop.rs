@@ -1,4 +1,3 @@
-// inheritance.rs
 // Rust does not support traditional class-based inheritance like OOP languages.
 // Instead, it uses TRAITS to achieve polymorphism and code reuse.
 
