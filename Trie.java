@@ -14,7 +14,6 @@ class TrieNode {
 };
 
 class Trie {
-    /** Initialize your data structure here. */
     public TrieNode root;
     
     public Trie() {
