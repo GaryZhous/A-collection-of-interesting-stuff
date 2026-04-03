@@ -1,6 +1,6 @@
 # A Collection of Interesting Stuff
 
-A personal reference library of algorithms, data structures, system design implementations, and language fundamentals — spanning **Go**, **Rust**, **Java**, and **C++**.
+A personal reference library of algorithms, data structures, system design implementations, and language fundamental.
 
 ---
 
