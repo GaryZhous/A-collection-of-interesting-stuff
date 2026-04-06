@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 
 struct FileSystem {
-    // Maps full path -> associated value
     mp: HashMap<String, i32>,
 }
 
