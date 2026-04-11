@@ -26,7 +26,6 @@ impl AuctionSystem {
     }
 
     fn update_bid(&mut self, user_id: i32, item_id: i32, new_amount: i32) {
-        // Guaranteed to exist
         self.cur.insert((user_id, item_id), new_amount);
         self.heaps
             .entry(item_id)
