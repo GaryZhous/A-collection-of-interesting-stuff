@@ -34,7 +34,6 @@ impl AuctionSystem {
     }
 
     fn remove_bid(&mut self, user_id: i32, item_id: i32) {
-        // Guaranteed to exist
         self.cur.remove(&(user_id, item_id));
         // No heap removal needed (lazy deletion)
     }
