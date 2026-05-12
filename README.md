@@ -79,7 +79,7 @@ A personal reference library of algorithms, data structures, system design imple
 | `Word_Search.cpp` | Word search on board using Trie + DFS |
 | `my_stack.cpp` | Array-based stack with overflow/underflow handling |
 | `unfun_tree.cpp` | Tree and linked-list node structures for algorithmic problems |
-| `UnixFile.cpp` | System desgin with LLD and OOP for a Unix-like filse system |
+| `UnixFile.cpp` | System desgin with OOP for a Unix-like filse system |
 
 ---
 
