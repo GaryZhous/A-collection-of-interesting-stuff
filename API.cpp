@@ -45,7 +45,6 @@ int main(int argc, char* argv[]) {
 
     LOG(INFO) << "Raw JSON: " << readBuffer;
 
-    // Parse JSON
     try {
         auto j = nlohmann::json::parse(readBuffer);
         User user {
