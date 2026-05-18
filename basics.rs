@@ -1,4 +1,3 @@
-// main.rs
 
 // 1. Entry point
 fn main() {
